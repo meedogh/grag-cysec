@@ -8,7 +8,7 @@ from replay_buffer import ReplayBuffer
 from logger import EpisodeLogger
 import os
 
-EPISODES = 2000
+EPISODES = 3000
 EPSILON_START = 1.0
 EPSILON_END = 0.1
 EPSILON_DECAY = 0.999
@@ -102,7 +102,6 @@ for ep in range(EPISODES):
     for agent in env.agent_iter():
         obs = env.observe(agent)
 
-        # Select action if not terminated
         if env.terminations.get(agent, True):
             action = None
         else:
